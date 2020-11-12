@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Blocking
+  - Ground
+  - BackGround
   - 
   - 
   - 
@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Back
+    uniqueID: 1600179115
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Grass
+    uniqueID: 2791841439
+    locked: 0
+  - name: Characters
+    uniqueID: 3177238543
     locked: 0
