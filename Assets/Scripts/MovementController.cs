@@ -8,6 +8,9 @@ public class MovementController : MonoBehaviour
     [SerializeField]
     float movementSpeed = 1.4f;
 
+    [SerializeField]
+    bool verticalMovement = false;
+
     //Movement vector
     Vector2 movement = new Vector2();
 
@@ -54,10 +57,15 @@ public class MovementController : MonoBehaviour
     void MoveCharacter()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
-        //movement.y = Input.GetAxisRaw("Vertical");
+
+        if (verticalMovement)
+        {
+            movement.y = Input.GetAxisRaw("Vertical");
+        }
+      
 
         movement.Normalize();
-        print(movement);
+        //print(movement);
 
         rb2d.velocity = movement * movementSpeed;
 
