@@ -65,14 +65,11 @@ public class MovementController : MonoBehaviour
 
     void UpdateState()
     {
-        if(movement.x > 0)
+        if(movement.x != 0)
         {
             animator.SetInteger(animationState, (int)CharStates.run);
         }
-        else if(movement.x < 0)
-        {
-            animator.SetInteger(animationState, (int)CharStates.run);
-        }
+
         else
         {
             animator.SetInteger(animationState, (int)CharStates.idle);
