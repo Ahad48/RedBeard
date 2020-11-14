@@ -21,6 +21,6 @@ public class RoundCameraPos : CinemachineExtension
 
     float Round(float x)
     {
-        return Mathf.Round((x * PixelsPerUnit) / PixelsPerUnit);
+        return Mathf.Round(x * PixelsPerUnit) / PixelsPerUnit;
     }
 }
