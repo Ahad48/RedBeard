@@ -8,8 +8,38 @@ public class Player : Character
     {
         if (collision.gameObject.CompareTag("Pickups"))
         {
-            collision.gameObject.SetActive(false);
-            print("Coin Picked Up");
+            Item hitObject = collision.gameObject.GetComponent<Consumables>().item;
+
+            if (hitObject != null)
+            {
+                print("Hit: " + hitObject.objectName);
+
+                switch (hitObject.itemType)
+                {
+                    case Item.ItemType.Coin:
+                        break;
+
+                    case Item.ItemType.Health:
+                        AdjustHitPoints(hitObject.quantity);
+                        break;
+
+                    default:
+                        break;
+
+                }
+
+                collision.gameObject.SetActive(false);
+            }
         }
+    }
+
+    public void AdjustHitPoints(int amount)
+    {
+        if (hitPoints < maxHitPoints)
+        {
+            hitPoints++;
+            print("Adjusted hitpoints by: " + amount + ".New value: " + hitPoints);
+        }
+
     }
 }
