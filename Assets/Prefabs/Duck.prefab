@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4637848836668607883}
   - component: {fileID: 1466909672223211459}
   - component: {fileID: 238256752178996809}
+  - component: {fileID: 5426201715119207719}
+  - component: {fileID: 1947267908409570369}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Untagged
@@ -28,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7453477382322425541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -3.46, z: 0}
-  m_LocalScale: {x: 1.031527, y: 0.9964516, z: 1.0112202}
+  m_LocalPosition: {x: 0.0168, y: -3.4557, z: 0}
+  m_LocalScale: {x: 1.0250976, y: 0.9902408, z: 1.0049174}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -138,16 +140,47 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011646032, y: 0.06398487}
+  m_Offset: {x: 0.011646032, y: 0.18089189}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.375}
+    oldSize: {x: 1, y: 1.25}
     newSize: {x: 1, y: 1.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.81948376, y: 1.2470303}
+  m_Size: {x: 0.81948376, y: 0.87477803}
   m_EdgeRadius: 0
+--- !u!114 &5426201715119207719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453477382322425541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e733adf1d3b334709ba2f6985ece881a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 2
+  startingHitPoints: 2
+  damageStrenth: 1
+--- !u!58 &1947267908409570369
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453477382322425541}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.29753304}
+  serializedVersion: 2
+  m_Radius: 0.313465

@@ -12,12 +12,13 @@ public class Player : Character
 
     private void Start()
     {
-        inventory = Instantiate(inventoryprefab);    
         hitPoints.value = startingHitPoints;
-        healthBar = Instantiate(healthBarPrefab);
-        healthBar.character = this;
     }
 
+    private void OnEnable()
+    {
+        ResetCharacter();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,5 +61,41 @@ public class Player : Character
             return true;
         }
         return false;
+    }
+
+    public override IEnumerator DamageCharacter(int damage, float interval)
+    {
+        while (true)
+        {
+            hitPoints.value -= damage;
+            if (hitPoints.value <= float.Epsilon)
+            {
+                KillCharacter();
+                break;
+            }
+            if (interval > float.Epsilon)
+            {
+                yield return new WaitForSeconds(interval);
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
+    public override void KillCharacter()
+    {
+        base.KillCharacter();
+        Destroy(healthBar.gameObject);
+        Destroy(inventory.gameObject);
+    }
+
+    public override void ResetCharacter()
+    {
+        hitPoints.value = startingHitPoints;
+        inventory = Instantiate(inventoryprefab);
+        healthBar = Instantiate(healthBarPrefab);
+        healthBar.character = this;
     }
 }
