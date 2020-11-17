@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019648075, y: 0.13098764}
+  m_Offset: {x: 0.019648075, y: 0.13559735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.77732205, y: 0.60703945}
+  m_Size: {x: 0.77732205, y: 0.59782004}
   m_EdgeRadius: 0
 --- !u!58 &959295545524127821
 CircleCollider2D:
@@ -167,9 +167,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.21612835}
+  m_Offset: {x: 0.011522204, y: -0.2326127}
   serializedVersion: 2
-  m_Radius: 0.28387165
+  m_Radius: 0.23943916
 --- !u!114 &959295545524127818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,5 +196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3776b68594282482dbbea256b1d4dc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 0
-  maxHitPoints: 0
+  hitPoints: {fileID: 11400000, guid: 464b09a6ffe1b4cb98ecfb54ff314343, type: 2}
+  maxHitPoints: 10
+  startingHitPoints: 6
+  healthBarPrefab: {fileID: 4493343591523251014, guid: 3e13fefea7eb74631bd9a65542c57d46,
+    type: 3}
+  inventoryprefab: {fileID: 7681632715735962894, guid: 64d8ac5dc33e64b0ab7962aa8a9a7979,
+    type: 3}

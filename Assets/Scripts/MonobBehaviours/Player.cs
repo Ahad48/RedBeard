@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public HealthBar healthBarPrefab;
     public Inventory inventoryprefab;
     Inventory inventory;
+    HealthBar healthBar;
+    public HitPoints hitPoints;
 
     private void Start()
     {
         inventory = Instantiate(inventoryprefab);    
         hitPoints.value = startingHitPoints;
+        healthBar = Instantiate(healthBarPrefab);
+        healthBar.character = this;
     }
 
 

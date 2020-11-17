@@ -7,8 +7,6 @@ using TMPro;
 public class HealthBar : MonoBehaviour
 {
     public HitPoints hitPoints;
-
-    [HideInInspector]
     public Player character;
     public Slider healthSlider;
     public TextMeshProUGUI hpText;
