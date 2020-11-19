@@ -15,5 +15,5 @@ MonoBehaviour:
   objectName: Heart
   sprite: {fileID: -205270267638800340, guid: 2aa2f9d1a05ac413491bf2882f19376e, type: 3}
   quantity: 1
-  stackable: 0
+  stackable: 1
   itemType: 1

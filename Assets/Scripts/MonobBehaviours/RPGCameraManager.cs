@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+/// <summary>
+/// A singleton class
+/// Finds the virtual camera
+/// </summary>
 public class RPGCameraManager : MonoBehaviour
 {
     public static RPGCameraManager sharedInstance = null;
@@ -12,6 +16,7 @@ public class RPGCameraManager : MonoBehaviour
 
     private void Awake()
     {
+        // If another instance of the class is found then detroy this game object
         if (sharedInstance != null && sharedInstance != this)
         {
             Destroy(gameObject);
@@ -22,6 +27,7 @@ public class RPGCameraManager : MonoBehaviour
         }
         GameObject vCamObject = GameObject.FindWithTag("VirtualCamera");
 
+        // Get the virtual camera
         virtualCamera = vCamObject.GetComponent<CinemachineVirtualCamera>();
     }
 }

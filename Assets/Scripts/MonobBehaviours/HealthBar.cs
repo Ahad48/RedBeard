@@ -4,19 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// The health bar of the player
+/// </summary>
 public class HealthBar : MonoBehaviour
 {
+    // The hitpoints of the character
     public HitPoints hitPoints;
+
+    // The player character it is set using the Player script 
     [HideInInspector]
     public Player character;
+
+    // The slider of the helath bar
     public Slider healthSlider;
+
+    // The TextmextProUGUI object
     public TextMeshProUGUI hpText;
 
     //public Text hpText;
     float maxHitPoints;
-
-    //Slider is given a ratio so that value stays between 0 and 1
-    float ratioHealthSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +40,13 @@ public class HealthBar : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Set the Fill of the health bar and change the HP value of the text
+    /// </summary>
     void SetHealth()
     {
-        ratioHealthSlider = hitPoints.value / maxHitPoints;
+        //Slider is given a ratio so that value stays between 0 and 1
+        float ratioHealthSlider = hitPoints.value / maxHitPoints;
 
         //Meter is from right to left so subtracting from 1
         healthSlider.value = 1 - ratioHealthSlider;

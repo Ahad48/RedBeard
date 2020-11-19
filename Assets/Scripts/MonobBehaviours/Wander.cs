@@ -55,7 +55,10 @@ public class Wander : MonoBehaviour
     {
         currentAngle = Random.Range(0, 360);
         print(currentAngle);
-        endPosition += Vector3FromAngle(currentAngle);
+        Vector3 temp = Vector3FromAngle(currentAngle);
+        temp.x += temp.y;
+        temp.y = transform.position.y;
+        endPosition = temp;
         print(endPosition+"-----\n" + Vector3FromAngle(currentAngle));
     }
 
@@ -82,9 +85,10 @@ public class Wander : MonoBehaviour
         animator.SetBool("isWalking", false);
     }
 
-    Vector3 Vector3FromAngle(float inputAngleDegrees, int null_x = 0, int null_y = 0)
+    Vector3 Vector3FromAngle(float inputAngleDegrees)
     {
         float inputAngleRadians = inputAngleDegrees * Mathf.Deg2Rad;
-        return new Vector3(Mathf.Cos(inputAngleRadians)*(1-null_x), Mathf.Sin(inputAngleRadians)*(1-null_y), 0);
+        return new Vector3(Mathf.Cos(inputAngleRadians), Mathf.Sin(inputAngleRadians), 0);
+
     }
 }

@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// <para>Spawns the object at a location, if the object need to be initialsed
+/// only once the spawnobject function needs to be called, for multiple spawns at specific time interval
+/// just attach the script to the spawn point</para>
+/// </summary>
+
 public class SpawnPoint : MonoBehaviour
 {
     public GameObject prefabToSpawn;
@@ -16,12 +22,10 @@ public class SpawnPoint : MonoBehaviour
         }    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Spawns the object at the location of the spawn point
+    /// </summary>
+    /// <returns>Game object that has been instantiated at the location of the spawn point</returns>
     public GameObject SpawnObject()
     {
         if (prefabToSpawn != null)
