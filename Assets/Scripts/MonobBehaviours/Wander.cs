@@ -54,12 +54,12 @@ public class Wander : MonoBehaviour
     void ChooseNewEndPoint()
     {
         currentAngle = Random.Range(0, 360);
-        print(currentAngle);
+        //print(currentAngle);
         Vector3 temp = Vector3FromAngle(currentAngle);
         temp.x += temp.y;
         temp.y = transform.position.y;
         endPosition = temp;
-        print(endPosition+"-----\n" + Vector3FromAngle(currentAngle));
+        //print(endPosition+"-----\n" + Vector3FromAngle(currentAngle));
     }
 
     public IEnumerator Move(Rigidbody2D rigidbodyToMove, float speed)

@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1.4
   verticalMovement: 1
+  jumpSpeed: 3
 --- !u!114 &8620603958983670989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,10 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3776b68594282482dbbea256b1d4dc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: {fileID: 11400000, guid: 464b09a6ffe1b4cb98ecfb54ff314343, type: 2}
   maxHitPoints: 10
   startingHitPoints: 6
   healthBarPrefab: {fileID: 4493343591523251014, guid: 3e13fefea7eb74631bd9a65542c57d46,
     type: 3}
   inventoryprefab: {fileID: 7681632715735962894, guid: 64d8ac5dc33e64b0ab7962aa8a9a7979,
     type: 3}
+  hitPoints: {fileID: 11400000, guid: 464b09a6ffe1b4cb98ecfb54ff314343, type: 2}

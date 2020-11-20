@@ -11,6 +11,9 @@ public class MovementController : MonoBehaviour
     [SerializeField]
     bool verticalMovement = false;
 
+    [SerializeField]
+    float jumpSpeed = 3f;
+
     //Movement vector
     Vector2 movement = new Vector2();
 
@@ -52,6 +55,11 @@ public class MovementController : MonoBehaviour
     void FixedUpdate()
     {
         MoveCharacter();
+        if (Input.GetButtonDown("Jump"))
+        {
+            print("Jump");
+            Jump();
+        }
     }
 
     void MoveCharacter()
@@ -91,5 +99,10 @@ public class MovementController : MonoBehaviour
             facingRight = !facingRight;
             transform.Rotate(0f, 180f, 0f);
         }
+    }
+
+    void Jump()
+    {
+        rb2d.velocity = Vector2.up * jumpSpeed;
     }
 }
