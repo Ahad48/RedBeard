@@ -8,17 +8,8 @@ public class MovementController : MonoBehaviour
     [SerializeField]
     float movementSpeed = 1.4f;
 
-    [SerializeField]
-    bool verticalMovement = false;
-
-    [SerializeField]
-    float jumpSpeed = 3f;
-
-    //Movement vector
-    Vector2 movement = new Vector2();
-
-    //Defining the rigidbody
-    Rigidbody2D rb2d;
+    // Horizontal Movement
+    float horizontalMove;
 
     //Defining the Animator for switching between animations
     Animator animator;
@@ -26,8 +17,11 @@ public class MovementController : MonoBehaviour
     //Name of the animation
     string animationState = "AnimationState";
 
-    //Facing right check
-    bool facingRight;
+    bool jump = false;
+    bool crouch = false;
+
+    [SerializeField]
+    CharacterController2D controller;
 
     //Defining various character states
     enum CharStates
@@ -40,69 +34,46 @@ public class MovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        facingRight = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateState();
-        Flip();
+        MoveCharacter();
+        if(Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+
+        }
     }
 
     void FixedUpdate()
     {
-        MoveCharacter();
-        if (Input.GetButtonDown("Jump"))
-        {
-            print("Jump");
-            Jump();
-        }
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        jump = false;
     }
 
     void MoveCharacter()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-
-        if (verticalMovement)
-        {
-            movement.y = Input.GetAxisRaw("Vertical");
-        }
-      
-
-        movement.Normalize();
-        //print(movement);
-
-        rb2d.velocity = movement * movementSpeed;
-
+        horizontalMove = Input.GetAxisRaw("Horizontal") * movementSpeed;
+        print(horizontalMove);
     }
 
     void UpdateState()
     {
-        if(movement.x != 0)
+        if (horizontalMove != 0)
         {
             animator.SetInteger(animationState, (int)CharStates.run);
         }
-
+        else if (jump)
+        {
+            animator.SetInteger(animationState, (int)CharStates.jump);
+        }
         else
         {
             animator.SetInteger(animationState, (int)CharStates.idle);
         }
-    }
-    void Flip()
-    {
-        float horizontal = movement.x;
-        if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
-        {
-            facingRight = !facingRight;
-            transform.Rotate(0f, 180f, 0f);
-        }
-    }
-
-    void Jump()
-    {
-        rb2d.velocity = Vector2.up * jumpSpeed;
     }
 }
